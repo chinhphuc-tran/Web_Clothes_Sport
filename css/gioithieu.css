@@ -1,0 +1,125 @@
+       /* =========================================
+           1. CÀI ĐẶT CHUNG (RESET CSS)
+        ========================================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+        body { 
+            font-size: 17px; 
+            padding-bottom: 120px; /* Chừa khoảng trống dưới cùng để không bị footer đè lên nội dung */
+            background-color: #f9f9f9;
+        }
+
+        /* --- LỆNH BIẾN THẺ IMG THÀNH HÌNH NỀN VÀ LÀM MỜ --- */
+        .bg-image {
+            position: fixed; /* Cố định ảnh nền, khi cuộn chuột ảnh không bị chạy theo */
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; /* Ép ảnh phóng to vừa khít màn hình, đảm bảo không bị méo hình */
+            z-index: -1; /* Đẩy bức ảnh chìm xuống lớp cuối cùng để không che chữ */
+            opacity: 0.3; /* LỆNH LÀM MỜ: Có thể chỉnh từ 0.0 (tàng hình) đến 1.0 (rõ hoàn toàn) */
+        }
+
+        /* =========================================
+           2. HEADER & MENU ĐIỀU HƯỚNG
+        ========================================= */
+        /* Flexbox (display: flex) giúp các phần tử bên trong tự động căn chỉnh nằm ngang hàng nhau */
+        header { background-color: #1a1a1a; color: #ff5722; display: flex; padding: 25px; align-items: center; justify-content: center; }
+        .name { text-align: center; }
+        .name h1 { font-size: 36px; letter-spacing: 2px; }
+        .name p { font-size: 18px; color: white; margin-top: 5px; }
+
+        /* Lệnh justify-content: space-between giúp đẩy Menu sang trái và Ô tìm kiếm sang phải */
+        nav { display: flex; background-color: #333; justify-content: space-between; align-items: center; padding: 0 30px; position: relative; z-index: 1001; }
+        .main-menu { display: flex; list-style: none; }
+        .main-menu > li { position: relative; } /* Điểm neo để menu con xổ xuống không bị chạy lung tung */
+        .main-menu a { display: block; text-decoration: none; color: white; font-weight: bold; font-size: 18px; padding: 18px 25px; transition: background-color 0.3s; }
+        .main-menu a:hover { background-color: #ff5722; }
+
+        /* --- CSS CHO MENU XỔ XUỐNG --- */
+        /* position: absolute giúp menu con lơ lửng, đè lên các nội dung phía dưới thay vì đẩy chúng đi chỗ khác */
+        .sub-menu-1 { display: none; /* Ban đầu ẩn menu con đi */ position: absolute; top: 100%; left: 0; background-color: #444; list-style: none; min-width: 240px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .main-menu li:hover > .sub-menu-1 { display: block; } /* Khi rê chuột (hover) vào thì mới hiện (block) menu con ra */
+        .sub-menu-1 > li { position: relative; border-bottom: 1px solid #555; }
+        .sub-menu-1 a { font-size: 16px; font-weight: normal; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .sub-menu-1 > li:hover > a { background-color: #f2552c !important; color: #ffffff !important; }
+
+        .sub-menu-2 { display: none; position: absolute; top: 0; left: 100%; background-color: #4f4f4f !important; list-style: none; min-width: 250px !important; box-shadow: 4px 4px 8px rgba(0,0,0,0.2); }
+        .sub-menu-1 li:hover > .sub-menu-2 { display: block; }
+        .sub-menu-2 > li { border-bottom: 1px solid #666; }
+        .sub-menu-2 a:hover { background-color: #333333 !important; }
+
+        /* Mũi tên giả cho menu con */
+        .has-child > a::after { content: " ▾"; font-size: 14px; }
+        .has-child-right > a::after { content: " ▸"; float: right; }
+
+        .search-box { padding: 10px 15px; font-size: 16px; border-radius: 20px; border: none; outline: none; }
+
+        /* =========================================
+           3. BANNER & BỐ CỤC CHÍNH (LAYOUT)
+        ========================================= */
+        /* display: flex và flex-direction: column giúp các dòng chữ xếp dọc và tự động ra giữa */
+        .banner-container { background-color: rgba(227, 227, 227, 0.9); width: 100%; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 4px solid #ff5722; position: relative; z-index: 10; }
+        .banner-container h2 { color: #333; font-size: 36px; text-transform: uppercase; margin-bottom: 10px;}
+        .banner-container p { color: #555; font-size: 18px; }
+
+        .layout-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; line-height: 1.6; position: relative; z-index: 10;}
+        
+        /* Cấu trúc phần Câu chuyện & Tầm nhìn (Ảnh một bên, chữ một bên) */
+        .about-section { 
+            margin-bottom: 40px; 
+            background: rgba(255, 255, 255, 0.95); /* Màu trắng hơi trong suốt để nhìn mờ mờ thấy ảnh nền */
+            padding: 30px; 
+            border-radius: 10px; 
+            border: 1px solid #ddd; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex; /* Dùng flex để dàn ngang 2 khối: Chữ và Ảnh */
+            align-items: center; 
+            gap: 30px; 
+        }
+        
+        /* Chia tỷ lệ: Chữ chiếm 7 phần, Ảnh chiếm 3 phần */
+        .about-text { flex: 7; }
+        .about-image { flex: 3; text-align: center; }
+        .about-image img { width: 100%; height: 250px; border-radius: 8px; object-fit: cover; }
+
+        .about-section h3 { color: #ff5722; font-size: 24px; margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .about-section p { color: #333; margin-bottom: 15px; text-align: justify; }
+        
+        /* Reponsive: Nếu dùng màn hình điện thoại thì cho chữ và ảnh rớt xuống xếp dọc (flex-direction: column) */
+        @media (max-width: 768px) {
+            .about-section { flex-direction: column; }
+            .about-image img { height: auto; }
+        }
+
+        /* =========================================
+           4. GIÁ TRỊ CỐT LÕI (Sử dụng Grid)
+        ========================================= */
+        /* CSS Grid giúp chia 3 hộp bằng nhau. Lệnh auto-fit giúp hộp tự rớt dòng nếu màn hình nhỏ */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        
+        .feature-box { 
+            text-align: center; padding: 20px; border: 1px solid #ddd; border-radius: 8px; 
+            background: rgba(255, 255, 255, 0.95); /* Nền mờ tương tự khung trên */
+            transition: transform 0.3s; /* Tạo thời gian delay 0.3 giây cho hiệu ứng rê chuột mượt hơn */
+        }
+        
+        /* Hiệu ứng nhấc hộp lên (translateY) khi rê chuột vào */
+        .feature-box:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-color: #ff5722; }
+        
+        .feature-box img { 
+            width: 100%; 
+            height: 180px; 
+            object-fit: cover; /* Giữ tỷ lệ ảnh, cắt phần thừa để không bị méo */
+            border-radius: 6px; 
+            margin-bottom: 15px; 
+        }
+
+        .feature-box h4 { color: #333; font-size: 20px; margin-bottom: 10px; }
+        .feature-box p { color: #666; font-size: 15px; }
+
+        /* =========================================
+           5. FOOTER
+        ========================================= */
+        /* position: fixed và bottom: 0 giúp thanh footer luôn gắn chặt dưới đáy màn hình */
+        footer { background-color: #1a1a1a; color: #ccc; text-align: center; padding: 18px 20px; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        footer h3 { color: #ff5722; margin: 0; font-size: 20px; }
+        footer p { margin: 0; font-size: 16px; }

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - Sneaker Zone</title>
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./icons-1.13.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <style>
+        .logo-header {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .container-detail {
+            max-width: 950px;
+        }
+
+        .img-detail {
+            max-height: 320px;
+            object-fit: contain;
+        }
+
+        .desc-text {
+            line-height: 1.6;
+        }
+
+        .btn-qty-step {
+            width: 28px;
+            height: 28px;
+        }
+
+        .input-qty-val {
+            width: 45px;
+            height: 28px;
+        }
+
+        .btn-add-cart-custom {
+            background-color: #ff5722;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .btn-add-cart-custom:hover {
+            background-color: #e64a19;
+        }
+
+        .star-label {
+            width: 65px;
+        }
+
+        .star-percent {
+            width: 45px;
+        }
+
+        .progress-bar-bg {
+            height: 7px;
+            background-color: #eee;
+        }
+
+        .progress-fill-star {
+            background-color: #f1b44c;
+        }
+
+        .p-star-70 { width: 70%; }
+        .p-star-20 { width: 20%; }
+        .p-star-5 { width: 5%; }
+        .p-star-3 { width: 3%; }
+        .p-star-2 { width: 2%; }
+
+        .textarea-review {
+            font-size: 14px;
+        }
+
+        .btn-submit-review {
+            background-color: #333;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-brand">
+            <div class="text-center">
+                <img src="./imgtrangchu/logo.jpeg" alt="Logo Shop" class="logo-header">
+            </div>
+            <div class="name">
+                <h1><i class="bi bi-lightning-charge-fill text-warning"></i> SNEAKER ZONE</h1>
+                <p><i class="bi bi-award-fill me-1"></i>Đậm chất thể thao - Vững bước thành công</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- THANH MENU -->
+    <nav>
+        <ul class="main-menu">
+            <li><a href="./mau6.html"><i class="bi bi-house-door-fill me-1"></i>TRANG CHỦ</a></li>
+            <li><a href="./gioithieu.html"><i class="bi bi-info-circle-fill me-1"></i>GIỚI THIỆU</a></li>
+            <li class="has-child">
+                <a href="./mau6.html"><i class="bi bi-grid-fill me-1"></i>SẢN PHẨM</a>
+                <ul class="sub-menu-1">
+                    <li class="has-child-right">
+                        <a href="./mau6.html"><i class="bi bi-gender-male me-1"></i>Giày Nam</a>
+                        <ul class="sub-menu-2">                            <li><a href="./giaychaybo.html">Giày Chạy Bộ (Running)</a></li>
+                            <li><a href="./giaytapgym.html">Giày Tập Gym</a></li>
+                            <li><a href="./giaythoitrang.html">Sneaker Thời Trang</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-child-right">
+                        <a href="./mau6.html"><i class="bi bi-gender-female me-1"></i>Giày Nữ</a>
+                        <ul class="sub-menu-2">
+                            <li><a href="./giaynu.html">Giày Đi Bộ</a></li>
+                            <li><a href="./sneakernu.html">Sneaker Nữ Năng Động</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./test1.html"><i class="bi bi-bag-plus-fill me-1"></i>Phụ Kiện Thể Thao</a></li>
+                </ul>
+            </li>
+            <li><a href="./lienhe.html"><i class="bi bi-telephone-inbound-fill me-1"></i>LIÊN HỆ</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+            <input class="search-box" id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm...">
+
+            <button type="button" class="btn btn-outline-light position-relative fw-semibold text-nowrap"
+                id="btnOpenCart" data-bs-toggle="modal" data-bs-target="#cartModal">
+                <i class="bi bi-cart3 me-1"></i>Giỏ hàng
+                <span id="cartCountBadge"
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    0
+                </span>
+            </button>
+
+            <div id="authArea" class="text-nowrap">
+                <button type="button" class="btn btn-warning fw-bold text-dark shadow-sm text-nowrap"
+                    data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <i class="bi bi-person-circle me-1"></i>Đăng nhập
+                </button>
+            </div>
+        </div>
+    </nav>
+<a href="./mau6.html" class="btn btn-warning p-md-5" > Quay lại trang chủ</a>
+    <!-- NỘI DUNG CHI TIẾT SẢN PHẨM & ĐÁNH GIÁ -->
+    <div class="container my-5 container-detail">
+        
+        <!-- 1. KHUNG SẢN PHẨM CHÍNH -->
+        <div class="card border-0 shadow-sm p-4 p-md-5 mb-5 rounded-4 bg-white">
+            <div class="row align-items-center g-4">
+                <div class="col-md-6 text-center">
+                    <img id="detailImg" src="./imgtrangchu/sneakerpro.webp" alt="Ảnh sản phẩm" class="img-fluid rounded-3 img-detail">
+                </div>
+                <div class="col-md-6">
+                    <h2 id="detailName" class="fw-bold fs-3 mb-2 text-dark">Tên Sản Phẩm</h2>
+                    <h4 id="detailPrice" class="text-danger fw-bold mb-3">0 đ</h4>
+                    <p class="text-secondary small mb-4 desc-text">
+                        Sản phẩm chính hãng tại Sneaker Zone, thiết kế ôm chân, chất liệu cao cấp giúp bạn tự tin bứt phá mọi giới hạn thể thao mỗi ngày.
+                    </p>
+                    <div class="mb-3 small">
+                        <strong class="text-dark">Màu sắc có sẵn:</strong>
+                        <span class="text-muted ms-1">Trắng, Đen, Đỏ</span>
+                    </div>
+                    <div class="mb-4 d-flex align-items-center gap-2">
+                        <label class="small fw-bold text-dark m-0">Số lượng:</label>
+                        <button class="btn btn-dark btn-sm px-2 py-0 fw-bold btn-qty-step" type="button" id="minusBtn">-</button>
+                        <input type="text" id="quantityInput" class="form-control form-control-sm text-center fw-bold px-1 input-qty-val" value="1">
+                        <button class="btn btn-dark btn-sm px-2 py-0 fw-bold btn-qty-step" type="button" id="plusBtn">+</button>
+                    </div>
+                    <button class="btn fw-bold px-4 py-2 text-white shadow-sm btn-add-cart-custom" id="btnAddCartDetail">
+                        <i class="bi bi-cart-plus me-1"></i> Thêm vào giỏ hàng
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. BẢNG TỶ LỆ ĐÁNH GIÁ (CUSTOMER REVIEWS) -->
+        <div class="card border-0 shadow-sm p-4 p-md-5 rounded-4 bg-white">
+            <h4 class="fw-bold text-center mb-4 text-dark"><i class="bi bi-star-fill text-warning me-1"></i> Đánh Giá Khách Hàng</h4>
+            
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-9">
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="text-muted small star-label">5 sao:</span>
+                        <div class="progress flex-grow-1 mx-2 progress-bar-bg">
+                            <div class="progress-bar progress-fill-star p-star-70"></div>
+                        </div>
+                        <span class="text-muted small text-end star-percent">70%</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="text-muted small star-label">4 sao:</span>
+                        <div class="progress flex-grow-1 mx-2 progress-bar-bg">
+                            <div class="progress-bar progress-fill-star p-star-20"></div>
+                        </div>
+                        <span class="text-muted small text-end star-percent">20%</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="text-muted small star-label">3 sao:</span>
+                        <div class="progress flex-grow-1 mx-2 progress-bar-bg">
+                            <div class="progress-bar progress-fill-star p-star-5"></div>
+                        </div>
+                        <span class="text-muted small text-end star-percent">5%</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="text-muted small star-label">2 sao:</span>
+                        <div class="progress flex-grow-1 mx-2 progress-bar-bg">
+                            <div class="progress-bar progress-fill-star p-star-3"></div>
+                        </div>
+                        <span class="text-muted small text-end star-percent">3%</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="text-muted small star-label">1 sao:</span>
+                        <div class="progress flex-grow-1 mx-2 progress-bar-bg">
+                            <div class="progress-bar progress-fill-star p-star-2"></div>
+                        </div>
+                        <span class="text-muted small text-end star-percent">2%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. FORM VIẾT ĐÁNH GIÁ (WRITE A REVIEW) -->
+            <div class="card border-0 bg-light p-4 rounded-3 mb-5">
+                <h5 class="fw-bold mb-3 text-center text-dark">Viết Đánh Giá Của Bạn</h5>
+                <form id="reviewForm">
+                    <div class="mb-3">
+                        <label class="form-label text-secondary small">Nhận xét sản phẩm:</label>
+                        <textarea class="form-control bg-white textarea-review" rows="3" placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark fw-bold px-4 py-2 text-white btn-submit-review">
+                            Gửi Đánh Giá
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 4. DANH SÁCH BÌNH LUẬN (REVIEWS) -->
+            <h5 class="fw-bold mb-4 text-center text-dark">Đánh Giá Từ Khách Hàng</h5>
+            <div id="reviewsList" class="px-md-3">
+                <div class="mb-4 pb-2 border-bottom">
+                    <div class="fw-bold text-dark mb-1">Jane Doe</div>
+                    <div class="text-muted small">"Sản phẩm rất đẹp và đi cực kỳ êm chân! Rất đáng tiền."</div>
+                </div>
+                <div class="mb-3">
+                    <div class="fw-bold text-dark mb-1">John Smith</div>
+                    <div class="text-muted small">"Giày chuẩn chất lượng, giao hàng nhanh chóng."</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL ĐĂNG NHẬP -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-person-circle text-warning me-2"></i>Đăng Nhập Sneaker Zone</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="loginForm" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Tên đăng nhập</label>
+                            <input type="text" id="usernameInput" class="form-control" placeholder="Nhập ít nhất 3 ký tự...">
+                            <div class="invalid-feedback">Tên đăng nhập phải từ 3 ký tự trở lên!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Mật khẩu</label>
+                            <input type="password" id="passwordInput" class="form-control" placeholder="Nhập ít nhất 6 ký tự...">
+                            <div class="invalid-feedback">Mật khẩu phải từ 6 ký tự trở lên!</div>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 fw-bold">Đăng Nhập Ngay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL GIỎ HÀNG -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold">
+                        <i class="bi bi-cart3 text-warning me-2"></i>Giỏ Hàng Của Bạn
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <ul id="cartListUI" class="list-group mb-3"></ul>
+                    <div class="border-top pt-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Tổng số lượng:</span>
+                            <span id="cartTotalCount" class="fw-bold text-dark">0 sản phẩm</span>
+                        </div>
+                        <div class="d-flex justify-content-between fw-bold fs-5">
+                            <span>Tổng tiền:</span>
+                            <span id="cartFinalTotal" class="text-danger">0 đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-danger fw-semibold" id="btnClearCart">
+                        <i class="bi bi-trash3 me-1"></i>Xóa hết
+                    </button>
+                    <button type="button" class="btn btn-success fw-bold px-4" id="btnCheckout">
+                        <i class="bi bi-credit-card-2-back me-1"></i>Thanh toán
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            <h3><i class="bi bi-shop text-warning me-2"></i>SNEAKER ZONE HCM</h3>
+        </div>
+        <div>
+            <p><i class="bi bi-telephone-fill me-1"></i>Hotline: 0909 123 456 | <i class="bi bi-envelope-fill me-1"></i>Email: contact@sneakerzone.vn</p>
+        </div>
+        <div>
+            <p>© 2026 Sneaker Zone.</p>
+        </div>
+    </footer>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/trangchu.js"></script>
+    <script>
+        // Lấy dữ liệu sản phẩm truyền qua đường dẫn URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nameParam = urlParams.get('name');
+        const priceParam = urlParams.get('price');
+        const imgParam = urlParams.get('img');
+
+        if (nameParam) document.getElementById('detailName').textContent = nameParam;
+        if (priceParam) document.getElementById('detailPrice').textContent = priceParam;
+        if (imgParam) document.getElementById('detailImg').src = imgParam;
+
+        // Tăng giảm số lượng sản phẩm
+        let qtyInput = document.getElementById('quantityInput');
+        document.getElementById('plusBtn').onclick = () => { qtyInput.value = parseInt(qtyInput.value) + 1; };
+        document.getElementById('minusBtn').onclick = () => { if(parseInt(qtyInput.value) > 1) qtyInput.value = parseInt(qtyInput.value) - 1; };
+
+        // Thêm sản phẩm vào giỏ hàng (Sửa lỗi để đồng bộ chính xác với LocalStorage của shop)
+        document.getElementById('btnAddCartDetail').onclick = function() {
+            let name = document.getElementById('detailName').textContent.trim();
+            let price = document.getElementById('detailPrice').textContent.trim();
+            let qty = parseInt(qtyInput.value) || 1;
+
+            let cart = JSON.parse(localStorage.getItem("sneakerZoneCart")) || [];
+            let found = cart.find(item => item.name === name);
+            if (found) {
+                found.qty += qty;
+            } else {
+                cart.push({ name: name, price: price, qty: qty });
+            }
+            localStorage.setItem("sneakerZoneCart", JSON.stringify(cart));
+            
+            // Gọi hàm renderCart từ trangchu.js nếu có để cập nhật số lượng trên icon giỏ hàng ngay lập tức
+            if (typeof renderCart === 'function') {
+                renderCart();
+            }
+            
+            alert("Đã thêm " + qty + " sản phẩm vào giỏ hàng!");
+        };
+
+        // Gửi đánh giá mới
+        document.getElementById('reviewForm').onsubmit = function(e) {
+            e.preventDefault();
+            let text = this.querySelector('textarea').value;
+            let list = document.getElementById('reviewsList');
+            list.innerHTML = `
+                <div class="mb-4 pb-2 border-bottom">
+                    <div class="fw-bold text-dark mb-1">Khách hàng (Bạn)</div>
+                    <div class="text-muted small">"${text}"</div>
+                </div>
+            ` + list.innerHTML;
+            this.reset();
+            alert("Đã gửi đánh giá thành công!");
+        };
+    </script>
+</body>
+
+</html>

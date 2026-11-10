@@ -1,0 +1,315 @@
+
+    <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Sneaker Zone</title>
+
+    <!-- Bootstrap 5 & Icon -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./icons-1.13.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/lienhe.css">
+
+    <style>
+        .bg-orange { background-color: #ff5722 !important; }
+    .text-orange { color: #ff5722 !important; }
+
+    /* CSS CHO ẢNH NỀN PHÍA SAU */
+    .bg-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1; /* Đẩy ảnh xuống lớp dưới cùng */
+        filter: brightness(0.6); /* Làm tối ảnh nền một chút để chữ nổi bật hơn */
+    }
+    </style>
+</head>
+
+<body class="bg-light">
+<img class="bg-image" src="./info img/banner1.jpeg" alt="Ảnh nền">
+    <!-- 1. HEADER -->
+    <header class="bg-dark text-white text-center py-3 border-bottom border-warning border-3">
+        <h1 class="h3 fw-bold mb-1"><i class="bi bi-lightning-charge-fill text-warning"></i> SNEAKER ZONE</h1>
+        <p class="small text-warning mb-0"><i class="bi bi-award-fill me-1"></i>Đậm chất thể thao - Vững bước thành công</p>
+    </header>
+
+    <!-- 2. NAVBAR -->
+  <nav>
+        <ul class="main-menu">
+            <li><a href="./mau6.html"><i class="bi bi-house-door-fill me-1"></i>TRANG CHỦ</a></li>
+            <li><a href="./gioithieu.html"><i class="bi bi-info-circle-fill me-1"></i>GIỚI THIỆU</a></li>
+            <li class="has-child">
+                <a href="./mau6.html"><i class="bi bi-grid-fill me-1"></i>SẢN PHẨM</a>
+                <ul class="sub-menu-1">
+                    <li class="has-child-right">
+                        <a href="./mau6.html"><i class="bi bi-gender-male me-1"></i>Giày Nam</a>
+                        <ul class="sub-menu-2">
+                            <li><a href="./giaychaybo.html">Giày Chạy Bộ (Running)</a></li>
+                            <li><a href="./giaytapgym.html">Giày Tập Gym</a></li>
+                            <li><a href="./giaythoitrang.html">Sneaker Thời Trang</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-child-right">
+                        <a href="./mau6.html"><i class="bi bi-gender-female me-1"></i>Giày Nữ</a>
+                        <ul class="sub-menu-2">
+                            <li><a href="./giaynu.html">Giày Đi Bộ</a></li>
+                            <li><a href="./sneakernu.html">Sneaker Nữ Năng Động</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./test1.html"><i class="bi bi-bag-plus-fill me-1"></i>Phụ Kiện Thể Thao</a></li>
+                </ul>
+            </li>
+            <li><a href="./lienhe.html"><i class="bi bi-telephone-inbound-fill me-1"></i>LIÊN HỆ</a></li>
+        </ul>
+            <div class="d-flex align-items-center gap-2">
+                <button type="button" class="btn btn-outline-light btn-sm position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+                    <i class="bi bi-cart3 me-1"></i>Giỏ hàng
+                    <span id="cartCountBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                </button>
+                <div id="authArea">
+                    <button type="button" class="btn btn-warning btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi bi-person-circle me-1"></i>Đăng nhập
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. BANNER LIÊN HỆ -->
+    <div class="bg-dark text-white text-center py-5 shadow-sm">
+        <div class="container">
+            <h2 class="display-6 fw-bold">Liên Hệ Với Chúng Tôi</h2>
+            <p class="text-secondary col-md-6 mx-auto mb-0">Hỗ trợ tư vấn size giày, kiểm tra đơn hàng và lắng nghe góp ý 24/7.</p>
+        </div>
+    </div>
+
+    <!-- 4. NỘI DUNG CHÍNH (2 CỘT RÕ RÀNG) -->
+    <div class="container my-5">
+        <div class="row g-4">
+            
+            <!-- CỘT 1: THÔNG TIN CỬA HÀNG & BẢN ĐỒ (5 phần 12) -->
+            <div class="col-12 col-lg-5">
+                <div class="card p-4 border-0 shadow-sm h-100 bg-white">
+                    <h4 class="fw-bold mb-3 border-bottom pb-2 text-dark">
+                        <i class="bi bi-shop text-orange me-2"></i>Thông Tin Cửa Hàng
+                    </h4>
+
+                    <div class="mb-3">
+                        <h6 class="fw-bold mb-1"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Địa chỉ:</h6>
+                        <p class="text-muted small mb-0">Trường Đại học Công Thương TP.HCM (HUIT), Quận Tân Phú, TP. Hồ Chí Minh</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="fw-bold mb-1"><i class="bi bi-telephone-fill text-success me-2"></i>Hotline tư vấn:</h6>
+                        <p class="text-muted small mb-0"><b>0999 999 999</b> (Zalo hỗ trợ trực tiếp)</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="fw-bold mb-1"><i class="bi bi-clock-fill text-warning me-2"></i>Giờ mở cửa:</h6>
+                        <p class="text-muted small mb-0">08:30 - 22:00 (Từ Thứ 2 đến Chủ Nhật)</p>
+                    </div>
+
+                    <!-- Bản đồ nhúng Google Maps -->
+                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden mt-3 shadow-sm">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0672790786894!2d106.62608531012755!3d10.806159158601167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be27d8b4f4d%3A0x92dcba2950430867!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBUaMawxqFuZyBUUC4gSOG7kyBDaMOtIE1pbmggKEhVSVQp!5e0!3m2!1svi!2s!4v1789665066649!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CỘT 2: FORM LIÊN HỆ & KẾT QUẢ PHẢN HỒI (7 phần 12) -->
+            <div class="col-12 col-lg-7">
+                <div class="card p-4 border-0 shadow-sm bg-white">
+                    <h4 class="fw-bold mb-2 text-dark">
+                        <i class="bi bi-envelope-paper-fill text-orange me-2"></i>Gửi Lời Nhắn
+                    </h4>
+                    <p class="text-muted small mb-4">Nhập thông tin bên dưới, nhân viên hỗ trợ sẽ liên hệ với bạn trong 5 phút.</p>
+
+                    <!-- FORM -->
+                    <form id="frmLienHe">
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <label class="form-label small fw-bold">Họ và tên *</label>
+                                <input type="text" id="inTen" class="form-control" placeholder="Ví dụ: Nguyễn Văn A" required>
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <label class="form-label small fw-bold">Số điện thoại *</label>
+                                <input type="tel" id="inSdt" class="form-control" placeholder="Ví dụ: 0909 xxx xxx" required>
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <label class="form-label small fw-bold">Email (Tùy chọn)</label>
+                                <input type="email" id="inEmail" class="form-control" placeholder="tenban@gmail.com">
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <label class="form-label small fw-bold">Chủ đề hỗ trợ</label>
+                                <select id="inChuDe" class="form-select">
+                                    <option value="Tư vấn chọn size giày">Tư vấn chọn size giày</option>
+                                    <option value="Kiểm tra đơn hàng">Kiểm tra đơn hàng</option>
+                                    <option value="Bảo hành & Đổi trả">Bảo hành & Đổi trả</option>
+                                    <option value="Góp ý khác">Góp ý khác</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">Nội dung câu hỏi *</label>
+                                <textarea id="inNoiDung" class="form-control" rows="4" placeholder="Nhập thắc mắc của bạn..." required></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-warning w-100 fw-bold py-2 shadow-sm">
+                                    <i class="bi bi-send-fill me-1"></i> Gửi Tin Nhắn Ngay
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- HỘP HIỂN THỊ KẾT QUẢ ĐÃ GỬI (Mặc định ẩn bằng class d-none) -->
+                    <div id="boxKetQua" class="alert alert-success d-none mt-4 p-3 border-2">
+                        <h6 class="fw-bold text-success mb-2"><i class="bi bi-check-circle-fill me-2"></i>Đã Nhận Được Thông Tin:</h6>
+                        <ul class="list-unstyled mb-0 small">
+                            <li>• <b>Khách hàng:</b> <span id="outTen"></span></li>
+                            <li>• <b>Số điện thoại:</b> <span id="outSdt"></span></li>
+                            <li>• <b>Email:</b> <span id="outEmail"></span></li>
+                            <li>• <b>Chủ đề:</b> <span id="outChuDe"></span></li>
+                            <li>• <b>Nội dung:</b> <span id="outNoiDung"></span></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL ĐĂNG NHẬP -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold">Đăng Nhập</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label">Tên đăng nhập</label>
+                            <input type="text" id="usernameInput" class="form-control" placeholder="Từ 3 ký tự..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu</label>
+                            <input type="password" id="passwordInput" class="form-control" placeholder="Từ 6 ký tự..." required>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 fw-bold">Đăng Nhập Ngay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-person-circle text-warning me-2"></i>Đăng Nhập
+                        Sneaker Zone</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="loginForm" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Tên đăng nhập</label>
+                            <input type="text" id="usernameInput" class="form-control"
+                                placeholder="Nhập ít nhất 3 ký tự...">
+                            <div class="invalid-feedback">Tên đăng nhập phải từ 3 ký tự trở lên!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Mật khẩu</label>
+                            <input type="password" id="passwordInput" class="form-control"
+                                placeholder="Nhập ít nhất 6 ký tự...">
+                            <div class="invalid-feedback">Mật khẩu phải từ 6 ký tự trở lên!</div>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 fw-bold">Đăng Nhập Ngay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Giỏ hàng -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold">
+                        <i class="bi bi-cart3 text-warning me-2"></i>Giỏ Hàng Của Bạn
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <!-- Danh sách sản phẩm -->
+                    <ul id="cartListUI" class="list-group mb-3"></ul>
+
+                    <!-- Tổng số lượng & Tổng tiền -->
+                    <div class="border-top pt-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Tổng số lượng:</span>
+                            <span id="cartTotalCount" class="fw-bold text-dark">0 sản phẩm</span>
+                        </div>
+                        <div class="d-flex justify-content-between fw-bold fs-5">
+                            <span>Tổng tiền:</span>
+                            <span id="cartFinalTotal" class="text-danger">0 đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-danger fw-semibold" id="btnClearCart">
+                        <i class="bi bi-trash3 me-1"></i>Xóa hết
+                    </button>
+                    <button type="button" class="btn btn-success fw-bold px-4" id="btnCheckout">
+                        <i class="bi bi-credit-card-2-back me-1"></i>Thanh toán
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-secondary text-center py-4 border-top border-warning border-3 mt-5">
+        <h5 class="text-white fw-bold mb-2">SNEAKER ZONE HCM</h5>
+        <p class="small mb-1">Hotline: 0999 999 999 | Email: contact@sneakerzone.vn</p>
+        <p class="small mb-0">Địa chỉ: Trường Đại học Công Thương TP.HCM (HUIT)</p>
+    </footer>
+
+    <!-- JS BOOTSTRAP VÀ LOGIC CHUNG -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/trangchu.js"></script>
+
+    <!-- JS FORM LIÊN HỆ: CHỈ 9 DÒNG CĂN BẢN (DỄ GIẢI THÍCH) -->
+    <script>
+        document.getElementById("frmLienHe").onsubmit = function(event) {
+            event.preventDefault(); // 1. Chặn trang web bị tải lại
+
+            // 2. Lấy giá trị người dùng nhập vào các ô input
+            document.getElementById("outTen").innerText = document.getElementById("inTen").value;
+            document.getElementById("outSdt").innerText = document.getElementById("inSdt").value;
+            document.getElementById("outEmail").innerText = document.getElementById("inEmail").value || "(Không cung cấp)";
+            document.getElementById("outChuDe").innerText = document.getElementById("inChuDe").value;
+            document.getElementById("outNoiDung").innerText = document.getElementById("inNoiDung").value;
+
+            // 3. Hiển thị khung kết quả bằng cách bỏ class 'd-none' của Bootstrap
+            document.getElementById("boxKetQua").classList.remove("d-none");
+
+            // 4. Reset xóa trắng form để người dùng có thể nhập lời nhắn mới
+            document.getElementById("frmLienHe").reset();
+        };
+    </script>
+</body>
+</html>

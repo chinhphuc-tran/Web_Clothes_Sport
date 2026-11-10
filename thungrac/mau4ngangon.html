@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Giày Thể Thao - Layout Rộng</title>
+    <style>
+        /* 1. RESET & TĂNG KÍCH THƯỚC CHỮ MẶC ĐỊNH */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { 
+            font-size: 20px; /* Chỉnh chữ toàn trang to rõ hơn hẳn (chuẩn cũ là 16px) */
+            padding-bottom: 120px; 
+            background-color: #f9f9f9; 
+        } 
+
+        /* 2. HEADER TO & THOÁNG HƠN */
+        header { background-color: #1a1a1a; color: #ff5722; text-align: center; padding: 35px; }
+        header h1 { font-size: 46px; letter-spacing: 3px; }
+        header p { font-size: 22px; color: white; margin-top: 10px; }
+
+        /* 3. MENU ĐIỀU HƯỚNG DÀY DẶN, DỄ BẤM HƠN */
+        nav { display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 0 40px; position: relative; z-index: 100; }
+        .main-menu { display: flex; list-style: none; }
+        .main-menu > li { position: relative; } 
+        .main-menu a { display: block; color: white; text-decoration: none; padding: 22px 30px; font-weight: bold; font-size: 22px; } 
+        .main-menu a:hover { background-color: #ff5722; }
+        
+        /* Menu con */
+        .sub-menu { display: none; position: absolute; top: 100%; left: 0; background-color: #444; list-style: none; min-width: 250px; }
+        .main-menu li:hover > .sub-menu { display: block; } 
+        .sub-menu a { font-weight: normal; border-bottom: 1px solid #555; font-size: 20px; padding: 18px 25px; }
+
+        /* 4. BANNER RỘNG RÃI */
+        .banner { background: #e3e3e3; text-align: center; padding: 80px 0; border-bottom: 5px solid #ff5722; font-size: 42px; font-weight: bold; }
+
+        /* 5. BỐ CỤC 70/30: NỚI RỘNG MAX-WIDTH LÊN 1500PX (Cũ là 1200px) */
+        .layout-container {
+            display: grid;
+            grid-template-columns: 7fr 3fr; 
+            gap: 50px; /* Tăng khoảng cách 2 cột cho thoáng */
+            max-width: 1500px; /* Giao diện bung rộng hơn trên màn hình */
+            margin: 50px auto; 
+            padding: 0 30px;
+        }
+
+        /* --- 5a. Thẻ Sản phẩm (70%) --- */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; } /* Ô chứa giày rộng hơn */
+        .card { background: white; padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #ddd; }
+        .card img { width: 100%; height: 260px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; background: #eee; }
+        .card h3 { font-size: 26px; margin-bottom: 10px; }
+        .price { color: #ff5722; font-size: 24px; font-weight: bold; margin: 10px 0 20px; }
+        .btn { background: #ff5722; color: white; border: none; padding: 18px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 22px; transition: 0.3s; }
+        .btn:hover { background-color: #e64a19; }
+
+        /* --- 5b. Sidebar (30%) --- */
+        .sidebar { background: white; padding: 35px; border-radius: 10px; border: 1px solid #ddd; height: fit-content; }
+        .sidebar h3 { border-left: 5px solid #ff5722; padding-left: 15px; margin-bottom: 30px; font-size: 28px; }
+        .sidebar label { font-size: 22px; font-weight: bold; display: block; margin-bottom: 10px;}
+        .sidebar select { width: 100%; padding: 18px; margin-bottom: 25px; font-size: 20px; border-radius: 8px; border: 1px solid #ccc; }
+
+        /* 6. FORM KHẢO SÁT NỚI RỘNG TƯƠNG ĐƯƠNG */
+        .survey { max-width: 1500px; margin: 0 auto 50px; background: white; padding: 40px; border-radius: 10px; border-top: 5px solid #333; }
+        .survey h3 { text-align: center; font-size: 34px; margin-bottom: 30px; }
+        .form-row { display: flex; gap: 25px; flex-wrap: wrap; }
+        .form-row input { flex: 1; min-width: 300px; padding: 20px; font-size: 20px; border: 1px solid #ccc; border-radius: 8px; }
+
+        /* 7. FOOTER CHỮ LỚN */
+        footer { 
+            background: #1a1a1a; color: #ccc; text-align: center; padding: 25px 50px; 
+            position: fixed; bottom: 0; left: 0; width: 100%; 
+            display: flex; justify-content: space-between; font-size: 20px; align-items: center;
+        }
+        footer span.brand { color: #ff5722; font-weight: bold; font-size: 24px; }
+    </style>
+</head>
+<body>
+
+    <!-- PHẦN HEADER -->
+    <header>
+        <h1>SNEAKER ZONE</h1>
+        <p>Đậm chất thể thao - Vững bước thành công</p>
+    </header>
+
+    <!-- PHẦN MENU ĐIỀU HƯỚNG -->
+    <nav>
+        <ul class="main-menu">
+            <li><a href="#">TRANG CHỦ</a></li>
+            <li>
+                <a href="#">SẢN PHẨM ▾</a>
+                <!-- Menu con cấp 2 -->
+                <ul class="sub-menu">
+                    <li><a href="#">Giày Nam</a></li>
+                    <li><a href="#">Giày Nữ</a></li>
+                </ul>
+            </li>
+            <li><a href="#">LIÊN HỆ</a></li>
+        </ul>
+        <div>
+            <input type="text" placeholder="Tìm kiếm sản phẩm..." style="padding: 12px 20px; border-radius: 25px; border: none; font-size: 18px; outline: none; width: 300px;">
+        </div>
+    </nav>
+
+    <!-- PHẦN BANNER -->
+    <div class="banner">BỘ SƯU TẬP MỚI NHẤT 2026</div>
+
+    <!-- KHU VỰC BỐ CỤC CHÍNH CHIA LÀM 2 CỘT TỶ LỆ 70/30 -->
+    <div class="layout-container">
+        
+        <!-- Cột trái (70%): Khu vực danh sách sản phẩm -->
+        <main>
+            <h2 style="margin-bottom: 30px; border-bottom: 3px solid #ff5722; display: inline-block; font-size: 34px;">Sản Phẩm Nổi Bật</h2>
+            <div class="product-grid">
+                <!-- Thẻ sản phẩm 1 -->
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x260?text=Giay+1" alt="Sneaker 1">
+                    <h3>Sneaker Pro Max</h3>
+                    <p class="price">1.250.000 đ</p>
+                    <button class="btn">Thêm vào giỏ</button>
+                </div>
+                <!-- Thẻ sản phẩm 2 -->
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x260?text=Giay+2" alt="Sneaker 2">
+                    <h3>SpeedX Running</h3>
+                    <p class="price">1.500.000 đ</p>
+                    <button class="btn">Thêm vào giỏ</button>
+                </div>
+                <!-- Thẻ sản phẩm 3 -->
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x260?text=Giay+3" alt="Sneaker 3">
+                    <h3>Street Style Edition</h3>
+                    <p class="price">950.000 đ</p>
+                    <button class="btn">Thêm vào giỏ</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Cột phải (30%): Thanh Sidebar Bộ Lọc -->
+        <aside class="sidebar">
+            <h3>Bộ Lọc Sản Phẩm</h3>
+            <label>Thương hiệu:</label>
+            <select>
+                <option>Tất cả thương hiệu</option>
+                <option>Nike</option>
+                <option>Adidas</option>
+                <option>Puma</option>
+            </select>
+            <button class="btn" style="background:#333;">Lọc Ngay</button>
+        </aside>
+
+    </div> 
+    <!-- KẾT THÚC BỐ CỤC 70/30 -->
+
+    <!-- KHU VỰC KHẢO SÁT (Nằm ngoài khung lưới, tràn rộng theo max-width) -->
+    <div class="survey">
+        <h3>Nhận Tư Vấn Chọn Giày Miễn Phí</h3>
+        <div class="form-row">
+            <input type="text" placeholder="Họ và tên của bạn...">
+            <input type="text" placeholder="Số điện thoại liên lạc...">
+            <button class="btn" style="background:#333; flex: 0.5;">Gửi Yêu Cầu</button>
+        </div>
+    </div>
+
+    <!-- PHẦN FOOTER (Cố định ở đáy) -->
+    <footer>
+        <span class="brand">SNEAKER ZONE HCM</span>
+        <span>Hotline: 0909 123 456 | Email: contact@sneakerzone.vn</span>
+        <span>© 2026 Sneaker Zone</span>
+    </footer>
+
+</body>
+</html>

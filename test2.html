@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giày Chạy Bộ Nam - Sneaker Zone</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./icons-1.13.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/giaynam.css">
+</head>
+<body>
+
+    <!-- 1. HEADER & MENU STICKY -->
+    <div class="header-sticky-container">
+        <header>
+            <div class="name">
+                <h1>SNEAKER ZONE</h1>
+                <p>Đậm chất thể thao - Vững bước thành công</p>
+            </div>
+        </header>
+        <nav>
+            <ul class="main-menu">
+                <li><a href="./mau6.html"><i class="bi bi-house-door-fill me-1"></i>TRANG CHỦ</a></li>
+                <li><a href="./gioithieu.html"><i class="bi bi-info-circle-fill me-1"></i>GIỚI THIỆU</a></li>
+                <li class="has-child">
+                    <a href="./mau6.html"><i class="bi bi-grid-fill me-1"></i>SẢN PHẨM</a>
+                    <ul class="sub-menu-1">
+                        <li class="has-child-right">
+                            <a href="./mau6.html"><i class="bi bi-gender-male me-1"></i>Giày Nam</a>
+                            <ul class="sub-menu-2">
+                                <li><a href="./giaychaybo.html">Giày Chạy Bộ (Running)</a></li>
+                                <li><a href="./giaytapgym.html">Giày Tập Gym</a></li>
+                                <li><a href="./giaythoitrang.html">Sneaker Thời Trang</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-child-right">
+                            <a href="./mau6.html"><i class="bi bi-gender-female me-1"></i>Giày Nữ</a>
+                            <ul class="sub-menu-2">
+                                <li><a href="./giaynu.html">Giày Đi Bộ</a></li>
+                                <li><a href="./sneakernu.html">Sneaker Nữ Năng Động</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./test1.html"><i class="bi bi-bag-plus-fill me-1"></i>Phụ Kiện Thể Thao</a></li>
+                    </ul>
+                </li>
+                <li><a href="./lienhe.html"><i class="bi bi-telephone-inbound-fill me-1"></i>LIÊN HỆ</a></li>
+            </ul>
+
+            <!-- CỤM TÌM KIẾM, GIỎ HÀNG, ĐĂNG NHẬP (ĐÃ ĐỒNG BỘ) -->
+            <div class="d-flex align-items-center gap-2">
+                <input class="search-box" id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm...">
+                <button type="button" class="btn btn-outline-light position-relative fw-semibold text-nowrap" id="btnOpenCart" data-bs-toggle="modal" data-bs-target="#cartModal">
+                    <i class="bi bi-cart3 me-1"></i>Giỏ hàng
+                    <span id="cartCountBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                </button>
+                <div id="authArea" class="text-nowrap">
+                    <button type="button" class="btn btn-warning fw-bold text-dark shadow-sm text-nowrap" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi bi-person-circle me-1"></i>Đăng nhập
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- 2. BANNER VÀ DANH SÁCH SẢN PHẨM -->
+    <div class="banner-container">
+        <h2>GIÀY CHẠY BỘ NAM</h2>
+    </div>
+
+    <div class="layout-container">
+        <main class="main-col">
+            <h2 class="section-title">Danh Sách Giày Chạy Bộ</h2>
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <img src="./img/giaychaybo/Nike Vomero 18.png" alt="Nike Vomero 18">
+                    <div class="product-name">Nike Vomero 18</div>
+                    <div class="product-price">2.662.000 đ</div>
+                    <button class="btn-buy btn-buy-js">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./img/giaychaybo/Adidas Duramo Speed 2.png" alt="Adidas Duramo Speed 2">
+                    <div class="product-name">Adidas Duramo Speed 2</div>
+                    <div class="product-price">2.500.000 đ</div>
+                    <button class="btn-buy btn-buy-js">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./img/giaychaybo/HOKA Clifton 10.png" alt="HOKA Clifton 10">
+                    <div class="product-name">HOKA Clifton 10</div>
+                    <div class="product-price">2.519.000 đ</div>
+                    <button class="btn-buy btn-buy-js">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./img/giaychaybo/Asics Magic Speed 4.png" alt="Asics Magic Speed 4">
+                    <div class="product-name">Asics Magic Speed 4</div>
+                    <div class="product-price">1.963.000 đ</div>
+                    <button class="btn-buy btn-buy-js">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./img/giaychaybo/Puma Deviate Nitro 3.png" alt="Puma Deviate Nitro 3">
+                    <div class="product-name">Puma Deviate Nitro 3</div>
+                    <div class="product-price">1.975.000 đ</div>
+                    <button class="btn-buy btn-buy-js">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./img/giaychaybo/New Balance Fresh Foam X 860v12.png" alt="New Balance Fresh Foam X 860v12">
+                    <div class="product-name">New Balance Fresh Foam X 860v12</div>
+                    <div class="product-price">4.500.000 đ</div>
+                    <button class="btn-buy btn-buy-js">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./img/giaychaybo/Mizuno Wave Rider 28.png" alt="Mizuno Wave Rider 28">
+                    <div class="product-name">Mizuno Wave Rider 28</div>
+                    <div class="product-price">1.699.000 đ</div>
+                    <button class="btn-buy btn-buy-js">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./img/giaychaybo/Saucony Endorphin Elite.png" alt="Saucony Endorphin Elite">
+                    <div class="product-name">Saucony Endorphin Elite</div>
+                    <div class="product-price">7.500.000 đ</div>
+                    <button class="btn-buy btn-buy-js">Thêm vào giỏ</button>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- 3. MODALS (ĐĂNG NHẬP & GIỎ HÀNG) -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-person-circle text-warning me-2"></i>Đăng Nhập Sneaker Zone</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="loginForm" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Tên đăng nhập</label>
+                            <input type="text" id="usernameInput" class="form-control" placeholder="Nhập ít nhất 3 ký tự...">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Mật khẩu</label>
+                            <input type="password" id="passwordInput" class="form-control" placeholder="Nhập ít nhất 6 ký tự...">
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 fw-bold">Đăng Nhập Ngay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-cart3 text-warning me-2"></i>Giỏ Hàng Của Bạn</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <ul id="cartListUI" class="list-group mb-3"></ul>
+                    <div class="border-top pt-3">
+                        <div class="d-flex justify-content-between mb-2"><span class="text-muted">Tổng số lượng:</span><span id="cartTotalCount" class="fw-bold text-dark">0 sản phẩm</span></div>
+                        <div class="d-flex justify-content-between fw-bold fs-5"><span>Tổng tiền:</span><span id="cartFinalTotal" class="text-danger">0 đ</span></div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-danger fw-semibold" id="btnClearCart"><i class="bi bi-trash3 me-1"></i>Xóa hết</button>
+                    <button type="button" class="btn btn-success fw-bold px-4" id="btnCheckout"><i class="bi bi-credit-card-2-back me-1"></i>Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. FOOTER -->
+    <footer class="bg-dark text-white pt-3 pb-2 mt-4 border-top border-warning border-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <h6 class="fw-bold text-light mb-2 small">Contact Us</h6>
+                    <ul class="list-unstyled mb-0" style="font-size: 13px; color: #bbb;">
+                        <li class="mb-1"><i class="bi bi-telephone-fill me-2 text-white"></i> Hotline: <span class="text-white">0999 999 999</span></li>
+                        <li class="mb-1"><i class="bi bi-envelope-fill me-2 text-white"></i> Email: <span class="text-white">contact@sneakerzone.vn</span></li>
+                        <li class="mb-1 text-truncate"><i class="bi bi-geo-alt-fill me-2 text-white"></i> Address: ĐH Công Thương TP.HCM (HUIT)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mt-3 mt-md-0">
+                    <h6 class="fw-bold text-light mb-2 small">Follow Us</h6>
+                    <div class="d-flex gap-3 fs-6">
+                        <a href="#" class="text-secondary text-decoration-none"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary text-decoration-none"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-secondary text-decoration-none"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="text-secondary text-decoration-none"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex justify-content-md-end mt-3 mt-md-0">
+                    <div class="rounded-2 overflow-hidden shadow-sm border border-secondary border-opacity-50" style="width: 100%; max-width: 320px; height: 120px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0672790786894!2d106.62608531012755!3d10.806159158601167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be27d8b4f4d%3A0x92dcba2950430867!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBUaMawxqFuZyBUUC4gSOG7kyBDaMOtIE1pbmggKEhVSVQp!5e0!3m2!1svi!2s!4v1789665066649!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-2 opacity-25">
+            <div class="row"><div class="col-12 text-center"><p class="mb-0" style="font-size: 12px; color: #888;">&copy; 2026 Sneaker Zone. All rights reserved.</p></div></div>
+        </div>
+    </footer>
+
+    <!-- 5. SCRIPTS -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/trangchu.js"></script>
+
+</body>
+</html>

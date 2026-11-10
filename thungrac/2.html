@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Sneaker Zone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+        body { 
+            font-size: 17px; 
+            padding-bottom: 120px; 
+            background-color: #f9f9f9;
+        }
+        header { background-color: #1a1a1a; color: #ff5722; display: flex; padding: 25px; align-items: center; justify-content: center; }
+        .name { text-align: center; }
+        .name h1 { font-size: 36px; letter-spacing: 2px; }
+        .name p { font-size: 18px; color: white; margin-top: 5px; }
+
+        nav { display: flex; background-color: #333; justify-content: space-between; align-items: center; padding: 0 30px; position: relative; z-index: 1001; }
+        .main-menu { display: flex; list-style: none; }
+        .main-menu > li { position: relative; }
+        .main-menu a { display: block; text-decoration: none; color: white; font-weight: bold; font-size: 18px; padding: 18px 25px; transition: background-color 0.3s; }
+        .main-menu a:hover { background-color: #ff5722; }
+
+        .sub-menu-1 { display: none; position: absolute; top: 100%; left: 0; background-color: #444; list-style: none; min-width: 240px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .main-menu li:hover > .sub-menu-1 { display: block; }
+        .sub-menu-1 > li { position: relative; border-bottom: 1px solid #555; }
+        .sub-menu-1 a { font-size: 16px; font-weight: normal; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .sub-menu-1 > li:hover > a { background-color: #f2552c !important; color: #ffffff !important; }
+
+        .sub-menu-2 { display: none; position: absolute; top: 0; left: 100%; background-color: #4f4f4f !important; list-style: none; min-width: 250px !important; box-shadow: 4px 4px 8px rgba(0,0,0,0.2); }
+        .sub-menu-1 li:hover > .sub-menu-2 { display: block; }
+        .sub-menu-2 > li { border-bottom: 1px solid #666; }
+        .sub-menu-2 a:hover { background-color: #333333 !important; }
+
+        .has-child > a::after { content: " ▾"; font-size: 14px; }
+        .has-child-right > a::after { content: " ▸"; float: right; }
+
+        .search-box { padding: 10px 15px; font-size: 16px; border-radius: 20px; border: none; outline: none; }
+
+        /* Banner phụ */
+        .banner-container { background-color: #e3e3e3; width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border-bottom: 4px solid #ff5722; }
+        .banner-container h2 { color: #333; font-size: 36px; text-transform: uppercase; }
+
+        /* Nội dung Liên hệ (Grid 50/50) */
+        .layout-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
+        .contact-info { background: white; padding: 30px; border-radius: 10px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .contact-info h3 { color: #ff5722; font-size: 24px; margin-bottom: 20px; text-transform: uppercase; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .info-item { margin-bottom: 20px; }
+        .info-item h4 { color: #333; margin-bottom: 5px; font-size: 18px; }
+        .info-item p { color: #555; line-height: 1.5; }
+        
+        .map-container { margin-top: 20px; width: 100%; height: 250px; background-color: #eaeaea; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888; border: 1px solid #ddd; }
+
+        .contact-form { background: white; padding: 30px; border-radius: 10px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #333; }
+        .contact-form h3 { color: #1a1a1a; font-size: 24px; margin-bottom: 20px; text-align: center; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 8px; color: #333; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #ff5722; }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        
+        .btn-submit { background-color: #333; color: white; border: none; padding: 15px 20px; border-radius: 5px; font-size: 18px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        .btn-submit:hover { background-color: #ff5722; }
+
+        footer { background-color: #1a1a1a; color: #ccc; text-align: center; padding: 18px 20px; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        footer h3 { color: #ff5722; margin: 0; font-size: 20px; }
+        footer p { margin: 0; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="name">
+            <h1>SNEAKER ZONE</h1>
+            <p>Đậm chất thể thao - Vững bước thành công</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="main-menu">
+            <li><a href="mau3.html">TRANG CHỦ</a></li>
+            <li><a href="gioi thieu.html">GIỚI THIỆU</a></li> 
+            <li class="has-child">
+                <a href="#">SẢN PHẨM</a>
+                <ul class="sub-menu-1">
+                    <li class="has-child-right">
+                        <a href="#">Giày Nam</a>
+                        <ul class="sub-menu-2">
+                            <li><a href="giaychaybo.html">Giày Chạy Bộ (Running)</a></li>
+                            <li><a href="giaytapgym.html">Giày Tập Gym</a></li>
+                            <li><a href="giaythoitrang.html">Sneaker Thời Trang</a></li>
+                            <li><a href="giaybongro.html">Giày Bóng Rổ</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-child-right">
+                        <a href="#">Giày Nữ</a>
+                        <ul class="sub-menu-2">
+                            <li><a href="#">Giày Đi Bộ</a></li>
+                            <li><a href="#">Sneaker Nữ Năng Động</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="phukien.html">Phụ Kiện Thể Thao</a></li> 
+                </ul>
+            </li>
+            <li><a href="lien-he.html" style="background-color: #ff5722;">LIÊN HỆ</a></li>
+        </ul>
+        <div>
+            <input class="search-box" type="text" placeholder="Tìm kiếm sản phẩm...">
+        </div>
+    </nav>
+
+    <div class="banner-container">
+        <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+    </div>
+
+    <div class="layout-container">
+        <!-- Cột thông tin liên hệ -->
+        <div class="contact-info">
+            <h3>Thông Tin Cửa Hàng</h3>
+            
+            <div class="info-item">
+                <h4>Địa chỉ trụ sở chính:</h4>
+                <p>Khu trung tâm mua sắm, Trường Đại học Công Thương, TP. Hồ Chí Minh</p>
+            </div>
+            
+            <div class="info-item">
+                <h4>Điện thoại tư vấn:</h4>
+                <p>Hotline: 0999 999 999<br>Zalo: 0999 999 999</p>
+            </div>
+            
+            <div class="info-item">
+                <h4>Email & Thời gian làm việc:</h4>
+                <p>Email: contact@sneakerzone.vn<br>Giờ mở cửa: 08:30 - 22:00 (Từ Thứ 2 đến Chủ nhật)</p>
+            </div>
+
+            <!-- Khung giả lập Google Map -->
+            <div class="map-container">
+                <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0672790786894!2d106.62608531012755!3d10.806159158601167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be27d8b4f4d%3A0x92dcba2950430867!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBUaMawxqFuZyBUUC4gSOG7kyBDaMOtIE1pbmggKEhVSVQp!5e0!3m2!1svi!2s!4v1789665066649!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></p>
+            </div>
+        </div>
+
+        <!-- Cột Form liên hệ -->
+        <div class="contact-form">
+            <h3>Gửi Lời Nhắn Cho Sneaker Zone</h3>
+            <form>
+                <div class="form-group">
+                    <label>Họ và tên của bạn:</label>
+                    <input type="text" placeholder="Nhập họ và tên..." required>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại:</label>
+                    <input type="text" placeholder="Nhập số điện thoại liên lạc..." required>
+                </div>
+                <div class="form-group">
+                    <label>Email (Tùy chọn):</label>
+                    <input type="email" placeholder="Nhập email của bạn...">
+                </div>
+                <div class="form-group">
+                    <label>Nội dung cần hỗ trợ:</label>
+                    <textarea placeholder="Nhập nội dung câu hỏi, yêu cầu tư vấn hoặc góp ý của bạn..." required></textarea>
+                </div>
+                <button type="button" class="btn-submit">Gửi Tin Nhắn Ngay</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div><h3>SNEAKER ZONE HCM</h3></div>
+        <div><p>Hotline: 0999 999 999 | Email: contact@sneakerzone.vn</p></div>
+        <div><p>© 2026 Sneaker Zone.</p></div>
+    </footer>
+
+</body>
+</html>

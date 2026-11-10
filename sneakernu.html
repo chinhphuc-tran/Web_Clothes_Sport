@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Nữ Năng Động - Sneaker Zone</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./icons-1.13.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/sneakernu.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER CỐ ĐỊNH -->
+    <div class="header-sticky-container">
+        <header>
+            <div class="name">
+                <h1>SNEAKER ZONE</h1>
+                <p>Đậm chất thể thao - Vững bước thành công</p>
+            </div>
+        </header>
+        <nav>
+            <ul class="main-menu">
+                <li><a href="./mau6.html"><i class="bi bi-house-door-fill me-1"></i>TRANG CHỦ</a></li>
+                <li><a href="./gioithieu.html"><i class="bi bi-info-circle-fill me-1"></i>GIỚI THIỆU</a></li>
+                <li class="has-child">
+                    <a href="./mau6.html"><i class="bi bi-grid-fill me-1"></i>SẢN PHẨM</a>
+                    <ul class="sub-menu-1">
+                        <li class="has-child-right">
+                            <a href="./mau6.html"><i class="bi bi-gender-male me-1"></i>Giày Nam</a>
+                            <ul class="sub-menu-2">
+                                <li><a href="./giaychaybo.html">Giày Chạy Bộ (Running)</a></li>
+                                <li><a href="./giaytapgym.html">Giày Tập Gym</a></li>
+                                <li><a href="./giaythoitrang.html">Sneaker Thời Trang</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-child-right">
+                            <a href="./mau6.html"><i class="bi bi-gender-female me-1"></i>Giày Nữ</a>
+                            <ul class="sub-menu-2">
+                                <li><a href="./giaynu.html">Giày Đi Bộ</a></li>
+                                <li><a href="./sneakernu.html">Sneaker Nữ Năng Động</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./test1.html"><i class="bi bi-bag-plus-fill me-1"></i>Phụ Kiện Thể Thao</a></li>
+                    </ul>
+                </li>
+                <li><a href="./lienhe.html"><i class="bi bi-telephone-inbound-fill me-1"></i>LIÊN HỆ</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-2">
+                <input class="search-box" id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm...">
+
+                <button type="button" class="btn btn-outline-light position-relative fw-semibold text-nowrap"
+                    id="btnOpenCart" data-bs-toggle="modal" data-bs-target="#cartModal">
+                    <i class="bi bi-cart3 me-1"></i>Giỏ hàng
+                    <span id="cartCountBadge"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                </button>
+
+                <div id="authArea" class="text-nowrap">
+                    <button type="button" class="btn btn-warning fw-bold text-dark shadow-sm text-nowrap"
+                        data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi bi-person-circle me-1"></i>Đăng nhập
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- BANNER NGANG -->
+    <div class="banner-container">
+        <img class="banner-img" src="./img/giaynu/bannernu2.png" alt="Banner Sneaker Nữ">
+        <h2>SNEAKER NỮ NĂNG ĐỘNG</h2>
+    </div>
+
+    <!-- NỘI DUNG CHÍNH (8 CARD SẢN PHẨM SNEAKER NỮ) -->
+    <div class="layout-container">
+        <main class="main-col">
+            <h2 class="section-title">Sản Phẩm Sneaker Nữ Thời Trang</h2>
+            <div class="product-grid">
+
+                <!-- Card 1 -->
+                <div class="product-card">
+                    <img src="./img/giaynu/1.jpeg" alt="Sneaker Nữ Street Style">
+                    <div class="product-name">Sneaker Nữ Street Style</div>
+                    <div class="product-price">1.350.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="product-card">
+                    <img src="./img/giaynu/2.webp" alt="Sneaker Nữ Cổ Thấp Ulzzang">
+                    <div class="product-name">Sneaker Nữ Cổ Thấp Ulzzang</div>
+                    <div class="product-price">990.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="product-card">
+                    <img src="./img/giaynu/3.webp" alt="Giày Sneaker Nữ Chunky">
+                    <div class="product-name">Giày Sneaker Nữ Chunky</div>
+                    <div class="product-price">1.850.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="product-card">
+                    <img src="./img/giaynu/4.jpg" alt="Sneaker Thể Thao Phản Quang">
+                    <div class="product-name">Sneaker Thể Thao Phản Quang</div>
+                    <div class="product-price">1.650.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="product-card">
+                    <img src="./img/giaynu/5.jpg" alt="Giày Sneaker Nữ Đế Độn">
+                    <div class="product-name">Giày Sneaker Nữ Đế Độn</div>
+                    <div class="product-price">1.450.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="product-card">
+                    <img src="./img/giaynu/6.jpg" alt="Sneaker Nữ Cổ Cao Basic">
+                    <div class="product-name">Sneaker Nữ Cổ Cao Basic</div>
+                    <div class="product-price">1.250.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="product-card">
+                    <img src="./img/giaynu/7.jpg" alt="Sneaker Nữ Phối Màu Năng Động">
+                    <div class="product-name">Sneaker Phối Màu Năng Động</div>
+                    <div class="product-price">1.150.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="product-card">
+                    <img src="./img/giaynu/8.jpg" alt="Sneaker Nữ Họa Tiết Cá Tính">
+                    <div class="product-name">Sneaker Nữ Họa Tiết Cá Tính</div>
+                    <div class="product-price">1.550.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            <h3>SNEAKER ZONE HCM</h3>
+        </div>
+        <div>
+            <p>Hotline: 0909 123 456 | Email: contact@sneakerzone.vn</p>
+        </div>
+        <div>
+            <p>© 2026 Sneaker Zone.</p>
+        </div>
+    </footer>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <script src="./js/trangchu.js"></script>
+</body>
+
+</html>

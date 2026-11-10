@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phụ Kiện</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 17px;
+            padding-bottom: 120px;
+            background-color: #f9f9f9;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #ff5722;
+            display: flex;
+            padding: 25px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .name {
+            text-align: center;
+        }
+
+        .name h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        .name p {
+            font-size: 18px;
+            color: white;
+            margin-top: 5px;
+        }
+
+        nav {
+            display: flex;
+            background-color: #333;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .main-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-menu>li {
+            position: relative;
+        }
+
+        .main-menu a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 18px 25px;
+        }
+
+        .main-menu a:hover,.main-menu a.active {
+            background-color: #ff5722;
+        }
+
+        .sub-menu-1 {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            list-style: none;
+            min-width: 240px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-menu li:hover>.sub-menu-1 {
+            display: block;
+        }
+
+        .sub-menu-1>li {
+            position: relative;
+            border-bottom: 1px solid #555;
+        }
+
+        .sub-menu-1 a {
+            font-size: 16px;
+            font-weight: normal;
+            padding: 15px 20px;
+        }
+
+        .sub-menu-2 {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #555;
+            list-style: none;
+            min-width: 240px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sub-menu-1 li:hover>.sub-menu-2 {
+            display: block;
+        }
+
+        .sub-menu-2>li {
+            border-bottom: 1px solid #666;
+        }
+
+        .has-child>a::after {
+            content: " ▾";
+            font-size: 14px;
+        }
+
+        .has-child-right>a::after {
+            content: " ▸";
+            float: right;
+        }
+
+        .search-box {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 20px;
+            border: none;
+        }
+
+        .banner-container {
+            background-color: #e3e3e3;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 4px solid #ff5722;
+        }
+
+        .banner-container h2 {
+            color: #333;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+
+        .layout-container {
+            display: grid;
+            grid-template-columns: 7fr 3fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            margin-bottom: 25px;
+            color: #1a1a1a;
+            font-size: 28px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ff5722;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #f5f5f5;
+        }
+
+        .product-name {
+            font-size: 19px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-price {
+            color: #ff5722;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #e64a19;
+        }
+
+        .widget {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .widget-title {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-left: 4px solid #ff5722;
+            padding-left: 10px;
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-list li {
+            margin-bottom: 12px;
+        }
+
+        .category-list a {
+            text-decoration: none;
+            color: #333;
+            font-size: 17px;
+            display: block;
+            transition: color 0.2s;
+        }
+
+        .category-list a:hover {
+            color: #ff5722;
+            font-weight: bold;
+        }
+
+        .category-list a.active {
+            color: #ff5722;
+            font-weight: bold;
+        }
+
+        .mini-product {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 12px;
+        }
+
+        .mini-product:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .mini-product img {
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            margin-right: 15px;
+            background-color: #eee;
+        }
+
+        .mini-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .mini-price {
+            font-size: 15px;
+            color: #ff5722;
+            font-weight: bold;
+        }
+
+        .promo-banner {
+            background-color: #ff5722;
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+
+        .survey-section {
+            width: 100%;
+            background-color: #fff;
+            padding: 40px 20px;
+            border-top: 2px solid #ddd;
+            margin-top: 20px;
+        }
+
+        .survey-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #333;
+        }
+
+        .survey-container h3 {
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 14px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-submit {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+            margin-top: 15px;
+            border: none;
+        }
+
+        .btn-submit:hover {
+            background-color: #ff5722;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            text-align: center;
+            padding: 18px 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer h3 {
+            color: #ff5722;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        @media (max-width: 440px) {
+            .layout-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                position: static;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="name">
+            <h1>SNEAKER ZONE</h1>
+            <p>Đậm chất thể thao - Vững bước thành công</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="main-menu">
+            <li><a href="./mau5.html">TRANG CHỦ</a></li>
+            <li><a href="#">GIỚI THIỆU</a></li>
+            <li class="has-child">
+                <a href="./mau5.html">SẢN PHẨM</a>
+                <ul class="sub-menu-1">
+                    <li class="has-child-right">
+                        <a href="#">Giày Nam</a>
+                        <ul class="sub-menu-2">
+                            <li><a href="#">Giày Chạy Bộ (Running)</a></li>
+                            <li><a href="#">Giày Tập Gym</a></li>
+                            <li><a href="#">Sneaker Thời Trang</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-child-right">
+                        <a href="#">Giày Nữ</a>
+                        <ul class="sub-menu-2">
+                            <li><a href="#">Giày Đi Bộ</a></li>
+                            <li><a href="#">Sneaker Nữ Năng Động</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">PHỤ KIỆN</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">LIÊN HỆ</a></li>
+        </ul>
+        <div>
+            <input class="search-box" type="text" placeholder="Tìm kiếm sản phẩm...">
+        </div>
+    </nav>
+
+    <div class="banner-container">
+        <h2>PHỤ KIỆN THỂ THAO CAO CẤP</h2>
+    </div>
+
+    <div class="layout-container">
+
+        <main class="main-col">
+            <h2 class="section-title">Danh Sách Phụ Kiện</h2>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./web img/Vớ Thể Thao Chống Trượt.webp" alt="Vớ Thể Thao">
+                    <div class="product-name" title="Vớ Thể Thao Chống Trượt">Vớ Thể Thao Chống Trượt</div>
+                    <div class="product-price">50.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./web img/Nón Thể Thao Nữa Đầu.jpg" alt="Nón Lưỡi Trai">
+                    <div class="product-name" title="Nón Kết Thể Thao Sport">Nón Kết Thể Thao Sport</div>
+                    <div class="product-price">120.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./web img/Túi Đeo Chéo Thể Thao Mini.jpg" alt="Túi Chéo">
+                    <div class="product-name" title="Túi Đeo Chéo Mini Năng Động">Túi Đeo Chéo Thể Thao Mini</div>
+                    <div class="product-price">199.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./web img/Bình Nước Thể Thao 1 Lít.jpg" alt="Bình Nước">
+                    <div class="product-name" title="Bình Nước Thể Thao 1 Lít">Bình Nước Thể Thao 1 Lít</div>
+                    <div class="product-price">89.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./web img/Băng Bảo Vệ Đầu Gối.jpg" alt="Băng Đầu Gối">
+                    <div class="product-name" title="Băng Bảo Vệ Đầu Gối">Băng Bảo Vệ Đầu Gối</div>
+                    <div class="product-price">150.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="./web img/Dây Nhảy Thể Dục Lõi Cáp.jpg" alt="Dây Nhảy">
+                    <div class="product-name" title="Dây Nhảy Thể Dục Lõi Cáp">Dây Nhảy Thể Dục Lõi Cáp</div>
+                    <div class="product-price">65.000 đ</div>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar-col">
+
+            <div class="widget">
+                <h3 class="widget-title">Phân Loại</h3>
+                <ul class="category-list">
+                    <li><a href="#" class="active">Tất cả phụ kiện</a></li>
+                    <li><a href="#">Vớ / Tất thể thao</a></li>
+                    <li><a href="#">Mũ / Nón</a></li>
+                    <li><a href="#">Balo / Túi xách</a></li>
+                    <li><a href="#">Bình nước</a></li>
+                    <li><a href="#">Băng bảo vệ & Hỗ trợ</a></li>
+                    <li><a href="#">Dụng cụ tập nhẹ</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">Phụ Kiện Hot</h3>
+                <div class="mini-product">
+                    <img src="./web img/Vớ Thể Thao Chống Trượt.webp" alt="hot1">
+                    <div>
+                        <div class="mini-name">Vớ Thể Thao Pro</div>
+                        <div class="mini-price">75.000 đ</div>
+                    </div>
+                </div>
+                <div class="mini-product">
+                    <img src="./web img/Bình Nước Thể Thao 1 Lít.jpg" alt="hot2">
+                    <div>
+                        <div class="mini-name">Bình Nước Giữ Nhiệt</div>
+                        <div class="mini-price">250.000 đ</div>
+                    </div>
+                </div>
+                <div class="mini-product">
+                    <img src="./web img/Túi Đeo Chéo Thể Thao Mini.jpg" alt="hot3">
+                    <div>
+                        <div class="mini-name">Túi Đeo Chéo</div>
+                        <div class="mini-price">450.000 đ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="promo-banner">
+                <p style="font-size: 22px; margin-bottom: 10px;">🔥 MÙA TỰU TRƯỜNG 🔥</p>
+                <p style="font-size: 16px;">Nhập mã <b>HSSV2026</b> giảm ngay 15% cho học sinh - sinh viên</p>
+            </div>
+
+        </aside>
+    </div>
+
+    <div class="survey-section">
+        <div class="survey-container">
+            <h3>Nhận Tư Vấn Chọn Phụ Kiện Miễn Phí</h3>
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Họ và tên của bạn:</label>
+                        <input type="text" placeholder="Nhập họ và tên..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại liên lạc:</label>
+                        <input type="text" placeholder="Nhập số điện thoại..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mục đích sử dụng chính:</label>
+                        <select>
+                            <option value="">-- Chọn mục đích --</option>
+                            <option value="chaybo">Chạy bộ / Tập thể thao</option>
+                            <option value="tapgym">Tập Gym</option>
+                            <option value="bongda">Đi chơi / Thời trang hàng ngày</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn-submit">Gửi Yêu Cầu Tư Vấn</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <h3>SNEAKER ZONE HCM</h3>
+        </div>
+        <div>
+            <p>Hotline: 0909 123 456 | Email: contact@sneakerzone.vn</p>
+        </div>
+        <div>
+            <p>© 2026 Sneaker Zone.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
